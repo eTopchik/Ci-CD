@@ -9,16 +9,9 @@ services:
 build:
   stage: build
   image: docker:stable-dind
-<<<<<<< HEAD
    script:
     - docker login -u $DH_Uname -p $DH_pswd
-    - docker build -t CI-CD homework-v1.0.$CI_PIPELINE_IID" .
-=======
-   
-  script:
-    - docker login -u $DH_Uname -p $DH_pswd
-    - docker build -t /yehor.brilov/"CI-CD homework-v1.0.$CI_PIPELINE_IID" .
->>>>>>> 39f67c9b2c0bc51aaee7f03c036ebff73ecb3c2f
+    - docker build -t CI-CD homework-v1.0.$CI_PIPELINE_IID .
     - docker push /yehor.brilov/"CI-CD homework-v1.0.$CI_PIPELINE_IID"
   allow_failure: true
   tags:

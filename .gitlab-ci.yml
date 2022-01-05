@@ -9,10 +9,10 @@ services:
 build:
   stage: build
   image: docker:stable-dind
-   script:
+  script:
     - docker login -u $DH_Uname -p $DH_pswd
     - docker build -t "CI-CD homework-v1.0.$CI_PIPELINE_IID" .
-    - docker push /yehor.brilov/"CI-CD homework-v1.0.$CI_PIPELINE_IID"
+    - docker push "CI-CD homework-v1.0.$CI_PIPELINE_IID"
   allow_failure: true
   tags:
     - docker-shared

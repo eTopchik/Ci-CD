@@ -5,6 +5,8 @@ stages:
 services:
 - docker:stable-dind
 
+image:
+  docker/compose:latest
 
 build:
   stage: build

@@ -1,0 +1,34 @@
+stages:
+  - build
+  - test
+
+services:
+- docker:stable-dind
+
+
+build:
+  stage: build
+  image: docker:stable-dind
+   variables:
+    ver: "v1.0.$CI_PIPELINE_IID"
+  script:
+    - docker login -u $DH_Uname -p $DH_pswd
+    - docker build -t /yehor.brilov/"CI-CD homework + $ver" .
+    - docker push /yehor.brilov/"CI-CD homework + $ver"
+  allow_failure: true
+  tags:
+    - docker-shared
+
+test:
+  stage: test
+  image: docker:stable-dind
+  script:
+      - docker-compose 
+          -p "$CI_PROJECT_NAME"_"$CI_PIPELINE_ID"
+        up
+          --abort-on-container-exit
+          --exit-code-from app
+          --quiet-pull
+      -docker-compose down
+  tags:
+    - docker-shared

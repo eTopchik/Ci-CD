@@ -17,6 +17,8 @@ build:
   allow_failure: true
   tags:
     - docker-shared
+  rules:
+    - if: $CI_COMMIT_BRANCH =~ /^develop/
 
 test:
   stage: test

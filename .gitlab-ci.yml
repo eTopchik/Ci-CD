@@ -6,7 +6,7 @@ include:
 stages:
   - build
   - test
-  
+
 
 image:
   name: docker/compose:latest

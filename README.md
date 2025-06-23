@@ -1,5 +1,5 @@
 # CI-CD homework
-My Ci/cd task from PMtechAcademy
+My Ci/cd task 
 ## TASK
 1. Зарегистрироваться на https://hub.docker.com/ и обернуть логин и пароль в GtiLab CI/CD Variables (пароль с маскировкой)
 2. Написать .gitlab-ci.yml со стадиями **build** и **test** на базе данного репозитория.  
